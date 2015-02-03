@@ -98,5 +98,9 @@
 #undef CONFIG_SYS_LONGHELP
 #undef CONFIG_MENU
 #endif
+#if defined(CONFIG_ARM) && !defined(CONFIG_ARM64)
+#define CONFIG_USE_ARCH_MEMSET
+#define CONFIG_USE_ARCH_MEMCPY
+#endif
 
 #endif	/* __CONFIG_FALLBACKS_H */

@@ -12,7 +12,7 @@
 #include <linux/linkage.h>
 #include <asm/assembler.h>
 
-	.text
+	.section .text.memset,"ax",%progbits
 	.align	5
 
 	.syntax unified

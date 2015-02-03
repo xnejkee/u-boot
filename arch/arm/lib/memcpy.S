@@ -52,7 +52,7 @@
 	ldmfd sp!, {r0, \reg1, \reg2}
 	.endm
 
-	.text
+	.section .text.memcpy,"ax",%progbits
 
 /* Prototype: void *memcpy(void *dest, const void *src, size_t n); */
 	.syntax unified
