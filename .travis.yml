@@ -25,6 +25,7 @@ addons:
     - qemu-system-mips
     - qemu-system-ppc
     - qemu-system-x86
+    - qemu-system-misc
     - gcc-powerpc-linux-gnu
     - gcc-arm-linux-gnueabihf
     - gcc-aarch64-linux-gnu
@@ -38,7 +39,7 @@ install:
  - git clone --depth=1 git://git.kernel.org/pub/scm/utils/dtc/dtc.git /tmp/dtc
  - make -j4 -C /tmp/dtc
  # Clone uboot-test-hooks
- - git clone --depth=1 git://github.com/swarren/uboot-test-hooks.git /tmp/uboot-test-hooks
+ - git clone --depth=1 git://github.com/trini/uboot-test-hooks.git /tmp/uboot-test-hooks
  - ln -s travis-ci /tmp/uboot-test-hooks/bin/`hostname`
  - ln -s travis-ci /tmp/uboot-test-hooks/py/`hostname`
  # prepare buildman environment
@@ -285,5 +286,10 @@ matrix:
           BUILDMAN="^qemu-x86$"
           TOOLCHAIN="x86_64"
           BUILD_ROM="yes"
+    - env:
+        - TEST_PY_BD="r2dplus"
+          TEST_PY_ID="--id qemu"
+          BUILDMAN="^r2dplus$"
+          TOOLCHAIN="sh4"
 
 # TODO make it perfect ;-r
